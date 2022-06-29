@@ -1,0 +1,15 @@
+#Conditions: Sorted array of n uniformly distributed values
+
+nums = [1,3,5,7,9,11,13,15,17,19]
+
+def interpolationSearch(nums, target):
+    left = 0
+    right = len(nums) - 1
+    pos = left + ((target - nums[left])/(nums[right] - nums[left])) + (right - left)
+    return pos
+
+
+#TEST CASE
+interpolationSearch([1,3,5,7,9,11,13,15,17,19],5) #Takes just one step
+interpolationSearch([1,3,5,14,21,25,26,27]) #Takes same steps as regular BS if array is not uniform
+

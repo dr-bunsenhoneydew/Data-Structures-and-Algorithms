@@ -1,0 +1,15 @@
+#Conditions: Must be an array, strings, for example do not support item assignment
+
+def reverse(nums):
+    start = 0
+    end = len(nums)-1
+    while start < end:
+        nums[start], nums[end] = nums[end], nums[start]
+        start += 1
+        end -= 1
+    return nums
+
+
+#TEST CASES
+reverse([1,2,3,4,5,6])
+reverse(['a', 'b', 'c', 'd', 'e'])

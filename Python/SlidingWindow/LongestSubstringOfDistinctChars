@@ -1,0 +1,29 @@
+def findLongestSubstring(str, k):
+    beginning = 0
+    end = 0
+    left = 0
+    right = 0
+    window = []
+
+    while right < len(str):
+        if not str[right] in window:
+            if len(window) < k:
+                window.append(str[right])
+                right += 1
+            else:
+                del window[0]
+                left += 1
+        elif str[right] in window:
+            right += 1
+
+        if (end - beginning) < (right - left):
+            end = right
+            beginning = left
+    return str[beginning:end], end - beginning
+
+
+#TEST CASE
+findLongestSubstring('abcbdbdbbdcdabd', 2)
+findLongestSubstring('abcbdbdbbdcdabd', 3)
+findLongestSubstring('abcbdbdbbdcdabd', 5)
+
